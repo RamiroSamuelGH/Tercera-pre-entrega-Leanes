@@ -1,0 +1,53 @@
+{% extends "herencia.html" %}
+
+{% load static %}
+
+{% block titulo %}
+
+    <h1> ENTREGABLES </h1>
+{% endblock %}    
+
+{% block contenido_que_cambia %} 
+
+    <h1> Ingrese datos del entregable: </h1>
+    <form action="{% url "entregables" %}" method="POST">
+        {% csrf_token %}
+
+        <table>
+            {{ form.as_table }}
+        </table>
+
+        <input type="submit" value="Agregar">
+
+    </form>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th> ID </th>
+                <th> Nombre </th>
+                <th> FechaEntrega </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for entregable in entregables %}
+
+            <tr>
+                <td>
+                    {{ entregable.id }}
+                </td>
+                <td>
+                    {{ entregable.nombre }}
+                </td>
+                <td>
+                    {{ entregable.fecha_entrega }}
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
