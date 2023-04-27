@@ -3,53 +3,30 @@
 {% load static %}
 
 {% block titulo %}
-<h1 class="mb-5">resultados de la busqueda de comisiones</h1>
+<h1 class="mb-5">Resultados de la busqueda de comisiones</h1>
 {% endblock %}
 
 {% block contenido_que_cambia %}
 
+<p> resultado de la busqueda: {{ comision }}</p>
+
 {% if comisiones %}
 
-<h2>LISTADO DE Comisiones</h2>
-<table>
-    <thead>
-        <tr>
-            
-            <th>ID</th>
-            <th>Curso</th>
-            <th>Comision</th>
-            
-        </tr>
-    </thead>
-    <tbody>
+<ul>
+
+    {% for curso in comisiones %}
+
+        <li> {{curso.nombre}} </li>
+        <li> {{curso.comision}} </li>
+
+    {% endfor %}    
 
 
 
-        {% for comision in comisiones %}
-        <tr>
-            
-            <td>
-                {{ comision.id}}
-            </td>
-            <td>
-                {{ comision.curso}}
-            </td>
-            <td>
-                {{ comision.comision}}
-            </td>
-            
-            
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
 
-{% else %}
-
-<h2>NO HAY CURSOS QUE RESPONDAN A ESA BUSQUEDA</h2>
+</ul>
 
 {% endif %}
 
-
-
 {% endblock %}
+

@@ -33,12 +33,18 @@ def buscarComision(request):
 def buscandoComision(request):
 
     comisionIngresada=request.GET["comision"] 
+
     if comisionIngresada!="":
-        comisiones=Comision.objects.filter(comision__icontains==comisionIngresada)
+
+        comisiones=Curso.objects.filter(comision__icontains=comisionIngresada)
+
         print(comisiones)
+
         return render(request, "busquedaComisiones.html", {"comisiones" : comisiones})   
     else:
-        return render(request, "inicio.html", {"mensaje" : "Ingrese una comision porfavor"})
+
+        return render(request, "inicio.html", {"mensaje" : "ERROR. Ingrese una comision porfavor"})
+
 def profesores(request):
 
     if request.method == "POST":

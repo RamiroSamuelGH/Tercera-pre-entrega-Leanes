@@ -55,7 +55,7 @@ ROOT_URLCONF = 'terceraentrega.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["C:/Users/Ramiro/Desktop/Juegos/Coderhouse/tercerapreentrega/terceraentrega/appentrega/templatesappentrega"],
+        'DIRS': ["C:/Users/Ramiro/Desktop/Juegos/Coderhouse/tercerapreentrega/Tercera_pre-entrega+Leanes/appentrega/templatesappentrega"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
